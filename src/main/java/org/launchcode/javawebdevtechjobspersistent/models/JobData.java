@@ -50,9 +50,9 @@ public class JobData {
         if (fieldName.equals("name")){
             theValue = job.getName();
         } else if (fieldName.equals("employer")){
-            theValue = job.getEmployer().toString();
+            theValue = job.getEmployer();
         } else {
-            theValue = job.toString();
+            theValue = job.getSkills();
         }
 
         return theValue;
@@ -67,26 +67,17 @@ public class JobData {
      */
     public static ArrayList<Job> findByValue(String value, Iterable<Job> allJobs) {
 
-
         ArrayList<Job> results = new ArrayList<>();
 
         for (Job job : allJobs) {
-
             if (job.getName().toLowerCase().contains(value.toLowerCase())) {
                 results.add(job);
             } else if (job.getEmployer().toLowerCase().contains(value.toLowerCase())) {
                 results.add(job);
             } else if (job.getSkills().contains(value.toLowerCase())) {
                 results.add(job);
-            } else if (job.toString().toLowerCase().contains(value.toLowerCase())) {
-                results.add(job);
             }
-
         }
-
         return results;
     }
-
-
 }
-
