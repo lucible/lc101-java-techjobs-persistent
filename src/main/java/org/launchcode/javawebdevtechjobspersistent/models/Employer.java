@@ -1,11 +1,20 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
 public class Employer extends AbstractEntity {
+
+    @OneToMany
+    @JoinColumn(name = "employer")
+    private List<Job> jobs = new ArrayList<Job>();
 
     // no arg constructor for hibernate
     public Employer() {}
